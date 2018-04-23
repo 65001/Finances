@@ -1,0 +1,10 @@
+form{
+	padding:10px;
+}
+label{
+	display: block;
+}
+.entry {
+	padding-bottom:10px;
+	display: block;
+}

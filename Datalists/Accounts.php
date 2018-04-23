@@ -1,0 +1,3 @@
+<?php
+	include( $_SERVER['DOCUMENT_ROOT'].DIRECTORY_SEPARATOR."Finances".DIRECTORY_SEPARATOR."code.php");
+?>
