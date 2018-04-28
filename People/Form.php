@@ -4,6 +4,10 @@
 		<link rel="stylesheet" type="text/css" href="..\form.css">
 		<title>Add a Person</title>
 	</head>
+
+	<?php
+		include( $_SERVER['DOCUMENT_ROOT'].DIRECTORY_SEPARATOR."Finances".DIRECTORY_SEPARATOR."nav.php");
+	?>
 	
 	<body>
 		<div>

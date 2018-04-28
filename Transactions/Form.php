@@ -62,11 +62,10 @@
 				
 				<span class="entry">
 					<label>Memo:</label> 
-					<select id="Memo" name="Memo"  class="js-example-basic-single"/> 
-						<?php
+					<?php
 							echo GetMemos();
-						?>
-					</select>
+					?>
+					<input id="Memo" name="Memo"  list="Memos"/>
 				</span>
 				
 				<input type="submit" value="Submit">

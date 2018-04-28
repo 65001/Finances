@@ -34,6 +34,6 @@
 			</tbody>
 		</table>
 		<br>
-		<button>Add an Account</button>
+		<button onclick="location.href ='form.php';">Add an Account</button>
 	</body>
 </html>

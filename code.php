@@ -67,8 +67,26 @@
 	
 	function GetMemos(){
 		$result = Query("SELECT Distinct Memo,Count(Memo) From Transactions WHERE MEMO IS NOT NULL AND Length(MEMO) > 0 Group By Memo ORDER BY Count(Memo) DESC;");
+		echo Tab(6)."<datalist id=\"Memos\">\n";
+		echo Tab(6)."<option></option>\n";
 		foreach($result as $row){
 			echo Tab(6)."<option>".$row["Memo"]."</option>\n";
+		}
+		echo Tab(6)."</datalist>";
+	}
+
+	function GetPersons()
+	{
+		$result = Query("SELECT ID,Person From Persons;");
+		foreach($result as $row){
+			echo Tab(6)."<option value=\"".$row["ID"]."\">".$row["Person"]."</option>\n";
+		}
+	}
+
+	function GetCategories(){
+		$result = Query("SELECT ID,Category FROM Types;");
+		foreach($result as $row){
+			echo Tab(6)."<option value=\"".$row["ID"]."\">".$row["Category"]."</option>\n";
 		}
 	}
 ?>

@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="..\style.css">
 <?php
 	include( $_SERVER['DOCUMENT_ROOT'].DIRECTORY_SEPARATOR."Finances".DIRECTORY_SEPARATOR."nav.php");
 	
