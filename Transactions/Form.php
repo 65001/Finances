@@ -15,6 +15,9 @@
 		</script>
 	</head>
 
+	<!-- 
+		Look into js form validation before posting...
+	-->
 	<body>
 		<script>
 			$(document).ready(function() {
@@ -36,7 +39,7 @@
 		
 				<span class="entry">
 					<label>From:</label> 
-					<select required id="From" class="js-example-basic-single">
+					<select required id="From" name="From" class="js-example-basic-single">
 						<?php
 							echo GetAccounts();
 						?>
