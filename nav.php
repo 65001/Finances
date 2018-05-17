@@ -21,6 +21,7 @@
 					<a href=<?php echo Wrap(Accounts()."All Accounts"); ?>>All Accounts</a>
 					<a href=<?php echo Wrap(Accounts()."Balance"); ?>>Balance Summary</a>
 					<a href=<?php echo Wrap(Accounts()."Credit"); ?>>Credit Usage</a>
+					<a href=<?php echo Wrap(Accounts()."form"); ?>>Add Account</a>
 				</div>
 			</div>
 			
@@ -36,7 +37,12 @@
 			</div>
 			
 			<div class="dropdown">
-				<a href=<?php echo Wrap(People()."People"); ?>>People</a>
+				<button class="dropbtn">People</button>
+
+				<div class="dropdown-content">
+					<a href=<?php echo Wrap(People()."People"); ?>>People</a>
+					<a href=<?php echo Wrap(People()."Form");?>>Add Person</a>
+				</div>
 			</div>
 		</div>
 
