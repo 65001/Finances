@@ -21,7 +21,8 @@
                 data.addRows([
                     <?php
                         print "\n";
-                        Graph(Query("SELECT Account,ABS(Money) AS \"Money\" FROM Balance WHERE Money < 0 "),array("Account","Money"),Query("SELECT count(*) FROM Balance WHERE Money < 0")->fetchColumn(),array(false,true));
+                        Graph(Query("SELECT Account,ABS(Money) AS \"Money\" FROM Balance WHERE Money < 0 AND Account NOT LIKE '%Credit Card%'"),array("Account","Money"),
+                            Query("SELECT count(*) FROM Balance WHERE Money < 0 AND Account NOT LIKE '%Credit Card%'")->fetchColumn(),array(false,true));
                     ?>
                 ]);
 
@@ -37,8 +38,8 @@
                 data.addRows([
                     <?php
                         print "\n";
-                        Graph(Query("SELECT Account,ABS(Money) AS \"Money\" FROM Balance WHERE Money > 0 AND Account NOT LIKE '%Savings%' AND Account NOT LIKE '%Checking%' AND Account NOT LIKE '%Cash%'"),array("Account","Money"),
-                        Query("SELECT count(*) FROM Balance WHERE Money > 0 AND Account NOT LIKE '%Savings%' AND Account NOT LIKE '%Checking%' AND Account NOT LIKE '%Cash%'")->fetchColumn(),array(false,true));
+                        Graph(Query("SELECT Account,ABS(Money) AS \"Money\" FROM Balance WHERE (Money > 0 OR Account LIKE '%Credit Card%' ) AND (Account NOT LIKE '%Savings%' AND Account NOT LIKE '%Checking%' AND Account NOT LIKE '%Cash%')"),array("Account","Money"),
+                            Query("SELECT count(*) FROM Balance WHERE (Money > 0 OR Account LIKE '%Credit Card%' ) AND (Account NOT LIKE '%Savings%' AND Account NOT LIKE '%Checking%' AND Account NOT LIKE '%Cash%')")->fetchColumn(),array(false,true));
                     ?>
                 ]);
 
@@ -55,7 +56,7 @@
                     <?php
                         print "\n";
                         Graph(Query("SELECT Account,ABS(Money) AS \"Money\" FROM Balance WHERE Money > 0 AND (Account LIKE '%Savings%' OR Account LIKE '%Checking%' OR Account LIKE '%Cash%')"),array("Account","Money"),
-                        Query("SELECT count(*) FROM Balance WHERE Money > 0 AND (Account LIKE '%Savings%' OR Account LIKE '%Checking%' OR Account LIKE '%Cash%')")->fetchColumn(),array(false,true));
+                            Query("SELECT count(*) FROM Balance WHERE Money > 0 AND (Account LIKE '%Savings%' OR Account LIKE '%Checking%' OR Account LIKE '%Cash%')")->fetchColumn(),array(false,true));
                     ?>
                 ]);
 
