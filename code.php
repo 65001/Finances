@@ -52,6 +52,33 @@
 			print Tab(4)."</tr>\n";
 		}
 	}
+
+	function Graph($results,$columns,$count,$isNumber){
+		for($x = 0; $x < $count;$x++){
+		   $row = $results->fetch(PDO::FETCH_ASSOC);
+		   print Tab(4)."[";
+		   
+		   for($i = 0; $i < count($columns);$i++){
+			   if($isNumber[$i] == false){
+				   print "'";
+			   }
+			   print $row[$columns[$i]];
+			   if($isNumber[$i] == false){
+				   print "'";
+			   }
+
+			   if($i < count($columns)){
+				   print ",";
+			   }
+		   }
+
+		   print "]";
+		   if($x < $count){
+				print ",";
+			}
+			print "\n";
+		}
+	}
 	
 	function GetAccounts(){
 		$result = Query("SELECT ID,Person,Category FROM [Accounts View]");

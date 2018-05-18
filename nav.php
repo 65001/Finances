@@ -20,6 +20,7 @@
 					<a href=<?php echo Wrap(Accounts()."My Inactive Accounts"); ?>>My Inactive Accounts</a>
 					<a href=<?php echo Wrap(Accounts()."All Accounts"); ?>>All Accounts</a>
 					<a href=<?php echo Wrap(Accounts()."Balance"); ?>>Balance Summary</a>
+					<a href=<?php echo Wrap(Accounts()."Balance Graph");?>>Balance Graph</a>
 					<a href=<?php echo Wrap(Accounts()."Credit"); ?>>Credit Usage</a>
 					<a href=<?php echo Wrap(Accounts()."form"); ?>>Add Account</a>
 				</div>
@@ -32,6 +33,7 @@
 				<div class="dropdown-content">
 					<a href=<?php echo Wrap(Transactions()."Transactions"); ?>>All Transactions</a>
 					<a href=<?php echo Wrap(Transactions()."Summary"); ?>>Summary</a>
+					<a href=<?php echo Wrap(Transactions()."Income and Expense Graph");?>>Income/Expense Graph</a>
 					<a href=<?php echo Wrap(Transactions()."Form");?>> Add Transaction</a>
 				</div>
 			</div>
