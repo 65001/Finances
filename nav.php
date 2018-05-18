@@ -1,6 +1,7 @@
 <?php
 	include("code.php");
 ?>
+
 		<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
