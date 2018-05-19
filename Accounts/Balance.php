@@ -24,7 +24,7 @@
 			<tbody>
 				<?php		
 					print "\n";
-					print Table(Query("SELECT * FROM Balance"),array("Account","Money"));			
+					print Table(Query("SELECT Account,printf(\"%.2f\",round(Money,2)) AS 'Money' FROM Balance"),array("Account","Money"));			
 				?>
 			</tbody>
 		</table>

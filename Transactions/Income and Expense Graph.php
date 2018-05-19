@@ -21,12 +21,12 @@
                 data.addRows([
                     <?php
                         print "\n";
-                        Graph(Query("SELECT Account,ABS(Money) AS \"Money\" FROM Balance WHERE Money < 0 AND Account NOT LIKE '%Credit Card%'"),array("Account","Money"),
+                        Graph(Query("SELECT Account,ABS(Money) AS \"Money\" FROM Balance WHERE Money < 0 AND Account NOT LIKE '%Credit Card%' ORDER BY Money DESC"),array("Account","Money"),
                             Query("SELECT count(*) FROM Balance WHERE Money < 0 AND Account NOT LIKE '%Credit Card%'")->fetchColumn(),array(false,true));
                     ?>
                 ]);
 
-                var options = {'title':'Income','width':1000,'height':1000};
+                var options = {'title':'Net Income','width':1000,'height':1000};
                 var chart = new google.visualization.PieChart(document.getElementById('Income'));
                 chart.draw(data, options);
             }
@@ -38,12 +38,12 @@
                 data.addRows([
                     <?php
                         print "\n";
-                        Graph(Query("SELECT Account,ABS(Money) AS \"Money\" FROM Balance WHERE (Money > 0) AND (Account NOT LIKE '%Savings%' AND Account NOT LIKE '%Checking%' AND Account NOT LIKE '%Cash%' AND Account NOT LIKE '%E-Money%')"),array("Account","Money"),
+                        Graph(Query("SELECT Account,ABS(Money) AS \"Money\" FROM Balance WHERE (Money > 0) AND (Account NOT LIKE '%Savings%' AND Account NOT LIKE '%Checking%' AND Account NOT LIKE '%Cash%' AND Account NOT LIKE '%E-Money%') ORDER BY Money DESC"),array("Account","Money"),
                             Query("SELECT count(*) FROM Balance WHERE (Money > 0) AND (Account NOT LIKE '%Savings%' AND Account NOT LIKE '%Checking%' AND Account NOT LIKE '%Cash%' AND Account NOT LIKE '%E-Money%')")->fetchColumn(),array(false,true));
                     ?>
                 ]);
 
-                var options = {'title':'Expenses','width':1000,'height':1000};
+                var options = {'title':'Net Expenses','width':1000,'height':1000};
                 var chart = new google.visualization.PieChart(document.getElementById('Expenses'));
                 chart.draw(data, options);
             }
@@ -55,12 +55,12 @@
                 data.addRows([
                     <?php
                         print "\n";
-                        Graph(Query("SELECT Account,round(ABS(Money),2) AS \"Money\" FROM Balance WHERE Money > 0 AND (Account LIKE '%Savings%' OR Account LIKE '%Checking%' OR Account LIKE '%Cash%' OR Account LIKE '%Money%')"),array("Account","Money"),
+                        Graph(Query("SELECT Account,round(ABS(Money),2) AS \"Money\" FROM Balance WHERE Money > 0 AND (Account LIKE '%Savings%' OR Account LIKE '%Checking%' OR Account LIKE '%Cash%' OR Account LIKE '%Money%') ORDER BY Money DESC"),array("Account","Money"),
                              Query("SELECT count(*) FROM Balance WHERE Money > 0 AND (Account LIKE '%Savings%' OR Account LIKE '%Checking%' OR Account LIKE '%Cash%' OR Account LIKE '%Money%')")->fetchColumn(),array(false,true));
                     ?>
                 ]);
 
-                var options = {'title':'Assets','width':1000,'height':1000};
+                var options = {'title':'Net Assets','width':1000,'height':1000};
                 var chart = new google.visualization.PieChart(document.getElementById('Assets'));
                 chart.draw(data, options);
             }

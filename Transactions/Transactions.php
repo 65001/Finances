@@ -29,7 +29,7 @@
 			<tbody>
 				<?php			
 					print "\n";
-					print Table(Query("SELECT * FROM [Transactions View]"),array("Date","From","To","Amount","Memo"));				
+					print Table(Query("SELECT Date,\"From\",\"To\",printf(\"%.2f\",Amount) AS 'Amount',Memo FROM [Transactions View]"),array("Date","From","To","Amount","Memo"));				
 				?>
 			</tbody>
 		</table>
