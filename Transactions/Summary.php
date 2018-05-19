@@ -28,20 +28,11 @@
 			</thead>
 			<tbody>
 				<?php			
-					$result = Query("SELECT * FROM [Transactions Summary]");
+					$result = Query("SELECT \"From\",\"To\",printf(\"%.2f\",Money) AS 'Money',\"Number of Transactions\",printf(\"%.2f\",round(Money/\"Number of Transactions\",2)) AS 'AVG' FROM [Transactions Summary]");
 					print "\n";
-					foreach($result as $row)
-					{
-						print Tab(4)."<tr>\n";
-						print Tab(5)."<td>".$row['From']."</td>\n";
-						print Tab(5)."<td>".$row['To']."</td>\n";
-						print Tab(5)."<td>".$row['Money']."</td>\n";
-						print Tab(5)."<td>".$row['Number of Transactions']."</td>\n";
-						print Tab(5)."<td>".round( $row['Money'] / $row['Number of Transactions'],2)."</td>\n";
-						print Tab(4)."</tr>\n";
-					}				
+					print Table($result,array('From',"To","Money","Number of Transactions","AVG"));			
 				?>
-				
+			</tbody>
 		</table>
 		<br>
 		
