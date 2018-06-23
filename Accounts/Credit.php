@@ -13,29 +13,10 @@
 	<body>
 	
 		<table id="Credit">
-			<thead>
-				<tr>
-					<td id="Main" colspan="9">Credit</td>
-				</tr>
-				<tr>
-					<th>ID</th>
-					<th>Institution</th>
-					<th>Status</th>
-					<th>Created</th>
-					<th>Closed</th>
-					<th>Category</th>
-					
-					<th>Current Balance</th>
-					<th>Maximum</th>
-					<th>Usage</th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php			
-					print "\n";
-					print Table(Query("SELECT * FROM [Credit View]"),array("ID","Institution","Status","Created","Closed","Category","Current Balance","Maximum","Percentage Used"));
-				?>
-			</tbody>
+			<?php			
+				print "\n";
+				print Table(Query("SELECT * FROM [Credit View]"),array("ID","Institution","Status","Created","Closed","Category","Current Balance","Maximum","Percentage Used"),"Credit");
+			?>
 		</table>
 		<br>
 	</body>

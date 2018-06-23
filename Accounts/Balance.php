@@ -12,21 +12,10 @@
 	</head>
 	<body>
 		<table id="Balance">
-			<thead>
-				<tr>
-					<td id="Main" colspan="2">Balance Summary</td>
-				</tr>
-				<tr>
-					<th>Account</th>
-					<th>Balance</th>
-				</tr>
-			</thead>
-			<tbody>
 				<?php		
 					print "\n";
-					print Table(Query("SELECT Account,printf(\"%.2f\",round(Money,2)) AS 'Money' FROM Balance"),array("Account","Money"));			
+					print Table(Query("SELECT Account,printf(\"%.2f\",round(Money,2)) AS 'Balance' FROM Balance"),array("Account","Balance"),"Balance Summary");			
 				?>
-			</tbody>
 		</table>
 		<br>
 	</body>

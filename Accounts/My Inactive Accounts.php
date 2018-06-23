@@ -16,24 +16,10 @@
 		
 		
 		<table id="Inactive">
-			<thead>
-				<tr>
-					<td id="Main" colspan="5">My Inactive Accounts</td>
-				</tr>
-				<tr>
-					<th>ID</th>
-					<th>Person</th>
-					<th>Created</th>
-					<th>Closed</th>
-					<th>Category</th>
-				</tr>
-			</thead>
-			<tbody>
 				<?php			
 					print "\n";
-					print Table(Query("SELECT * FROM [My Inactive Accounts]"),array("ID","Person","Created","Closed","Category"));			
+					print Table(Query("SELECT * FROM [My Inactive Accounts]"),array("ID","Person","Created","Closed","Category"),"My Inactive Accounts");			
 				?>
-			</tbody>
 		</table>
 		<br>
 	</body>

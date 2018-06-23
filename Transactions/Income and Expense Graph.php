@@ -3,6 +3,7 @@
         <?php
 			include( $_SERVER['DOCUMENT_ROOT'].DIRECTORY_SEPARATOR."Finances".DIRECTORY_SEPARATOR."nav.php");
         ?>
+        <title>Graphs!</title>
         <link rel="stylesheet" type="text/css" href="..\style.css">
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     </head>
@@ -26,7 +27,7 @@
                     ?>
                 ]);
 
-                var options = {'title':'Net Income','width':1000,'height':1000};
+                var options = {'title':'Net Income','width':$(window).width(),'height':$(window).height()};
                 var chart = new google.visualization.PieChart(document.getElementById('Income'));
                 chart.draw(data, options);
             }
@@ -43,7 +44,7 @@
                     ?>
                 ]);
 
-                var options = {'title':'Net Expenses','width':1000,'height':1000};
+                var options = {'title':'Net Expenses','width':$(window).width(),'height':$(window).height()};
                 var chart = new google.visualization.PieChart(document.getElementById('Expenses'));
                 chart.draw(data, options);
             }
@@ -60,7 +61,7 @@
                     ?>
                 ]);
 
-                var options = {'title':'Net Assets','width':1000,'height':1000};
+                var options = {'title':'Net Assets','width':$(window).width(),'height':$(window).height()};
                 var chart = new google.visualization.PieChart(document.getElementById('Assets'));
                 chart.draw(data, options);
             }

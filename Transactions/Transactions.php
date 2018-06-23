@@ -8,30 +8,19 @@
 		<title>Transactions</title>
 		
 		<script>
-			$(document).ready(function() { $("#Transact").DataTable({"iDisplayLength": 100});});
+			$(document).ready(function() { $("#Transact").DataTable(
+				{"iDisplayLength": 100,"columnDefs": [
+    				{ "orderable": false, "targets": 0 }
+  					]});});
 		</script>
 	</head>
 	<body>
 	
 		<table id="Transact">
-			<thead>
-				<tr>
-					<td id="Main" colspan="5">Transactions</td>
-				</tr>
-				<tr>
-					<th>Date</th>
-					<th>From</th>
-					<th>To</th>
-					<th>Amount</th>
-					<th>Memo</th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php			
-					print "\n";
-					print Table(Query("SELECT Date,\"From\",\"To\",printf(\"%.2f\",Amount) AS 'Amount',Memo FROM [Transactions View]"),array("Date","From","To","Amount","Memo"));				
-				?>
-			</tbody>
+			<?php			
+				print "\n";
+				print Table(Query("SELECT ID,Date,\"From\",\"To\",printf(\"%.2f\",Amount) AS 'Amount',Memo FROM [Transactions View] ORDER BY DATE DESC"),array("Date","From","To","Amount","Memo"),"Transactions",true);				
+			?>
 		</table>
 		<br>
 		

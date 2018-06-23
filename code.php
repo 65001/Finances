@@ -42,15 +42,45 @@
 		return Load()->query($query);
 	}
 	
-	function Table($results,$data){
+	function Table($results,$data,$title,$editable = false){
+		print Tab(2)."<thead>\n";
+		$colspan = count($data);
+		$offset = 0;
+
+		if($editable){
+			$offset = 1;
+		}
+		print Tab(3)."<tr>\n".Tab(4)."<td id='Main' colspan=".($colspan + $offset).">".$title."</td>\n".Tab(3)."</tr>\n";
+		print Tab(3)."<tr>\n";
+
+		if($editable){
+			print Tab(4)."<th sortable=false><i class='fa fa-pencil'></th>\n";
+		}
+
+		for($x = 0;$x < $colspan;$x++){
+			print Tab(4)."<th>".$data[$x]."</th>\n";
+		}
+		print Tab(3)."</tr>\n";
+		print Tab(2)."</thead>\n";
+
+		print Tab(2)."<tbody>\n";
 		foreach($results as $row){
 			print Tab(4)."<tr>\n";
+
+			if($editable){
+				print Tab(5)."<td>";
+				print "<form action='Update Form.php' method='post'>";
+				print "<button type='image' name='ID' value='".$row["ID"]."'><i class='fa fa-edit fa-fw'></button>";
+				print "</form>";
+				print "</td>\n";
+			}
 		
-			for($x = 0;$x < count($data);$x++){
+			for($x = 0;$x < $colspan;$x++){
 				print Tab(5)."<td>".$row[$data[$x]]."</td>\n";
 			}
 			print Tab(4)."</tr>\n";
 		}
+		print Tab(2)."</tbody>\n";
 	}
 
 	function Graph($results,$columns,$count,$isNumber){

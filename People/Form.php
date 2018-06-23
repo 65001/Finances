@@ -11,6 +11,7 @@
 	
 	<body>
 		<div>
+			<h1>Add Person</h1>
 			<form method="post" action="post.php">
 				<span class="entry">
 					Name:<br> 

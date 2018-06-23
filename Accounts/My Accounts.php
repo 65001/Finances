@@ -14,25 +14,10 @@
 	
 
 		<table id="MyAccounts">
-			<thead>
-				<tr>
-					<td id="Main" colspan="5">My Accounts</td>
-				</tr>
-				<tr>
-					<th>ID</th>
-					<th>Institution</th>
-					<th>Status</th>
-					<th>Category</th>
-					<th>Balance</th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php			
-					print "\n";
-					print Table(Query("SELECT ID,Person,Status,Category,printf(\"%.2f\",Balance) AS 'Balance' FROM [My Accounts]"),array("ID","Person","Status","Category","Balance"));			
-				?>
-
-			</tbody>
+			<?php			
+				print "\n";
+				print Table(Query("SELECT ID,Person,Status,Category,printf(\"%.2f\",Balance) AS 'Balance' FROM [My Accounts]"),array("ID","Person","Status","Category","Balance"),"My Accounts");			
+			?>
 			<tfoot>
 				<tr>
 					<td colspan="4" style="text-align:left">Total:</td>

@@ -1,20 +1,15 @@
 <html>
 	<head>
+		<?php 
+			include( $_SERVER['DOCUMENT_ROOT'].DIRECTORY_SEPARATOR."Finances".DIRECTORY_SEPARATOR."nav.php");
+		?>
 		<link rel="stylesheet" type="text/css" href="..\style.css">
 		<link rel="stylesheet" type="text/css" href="..\form.css">
 		<title>Add an Account</title>
-
-				
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous" type="text/javascript"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js" type="text/javascript"></script>
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
 	</head>
 
-    <?php
-		include( $_SERVER['DOCUMENT_ROOT'].DIRECTORY_SEPARATOR."Finances".DIRECTORY_SEPARATOR."code.php");
-	?>
-
     <body>
+		<h1>Add an Account</h1>
         <script>
 			$(document).ready(function() {
 				$('.js-example-basic-single').select2();

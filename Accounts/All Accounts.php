@@ -14,23 +14,10 @@
 	
 
 		<table id="AllAccounts">
-			<thead>
-				<tr>
-					<td id="Main" colspan="4">Accounts</td>
-				</tr>
-				<tr>
-					<th>ID</th>
-					<th>Institution</th>
-					<th>Status</th>
-					<th>Category</th>
-				</tr>
-			</thead>
-			<tbody>
 				<?php			
 					print "\n";
-					print Table(Query("SELECT * FROM [Accounts View]"),array("ID","Person","Status","Category"));					
+					print Table(Query("SELECT * FROM [Accounts View]"),array("ID","Person","Status","Category"),"Accounts");					
 				?>
-			</tbody>
 		</table>
 		<br>
 		<button onclick="location.href ='form.php';">Add an Account</button>
