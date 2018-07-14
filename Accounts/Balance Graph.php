@@ -19,7 +19,7 @@
                 data.addRows([
                     <?php
                         print "\n";
-                        Graph(Query("SELECT * FROM Balance WHERE Money != 0"),array("Account","Money"),Query("SELECT count(*) FROM Balance WHERE Money != 0")->fetchColumn(),array(false,true));
+                        Graph(Query("SELECT * FROM Balance WHERE Money != 0 ORDER BY Money"),array("Account","Money"),Query("SELECT count(*) FROM Balance WHERE Money != 0")->fetchColumn(),array(false,true));
                     ?>
                 ]);
 

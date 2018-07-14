@@ -110,15 +110,27 @@
 		}
 	}
 	
-	function GetAccounts(){
+	function GetAccounts($selected = 0){
 		$result = Query("SELECT ID,Person,Category FROM [Accounts View]");
+		$i = 0;
+		echo "\n";
 		foreach($result as $row){
+			$i = $i + 1;
 			if($row["Category"] == "General"){
-				echo Tab(6)."<option value=\"".$row["ID"]."\">".$row["Person"]."</option>\n";
+				echo Tab(6)."<option ";
+				if($i == $selected){
+					echo "selected ";
+				}
+				echo " value=\"".$row["ID"]."\">".$row["Person"]."</option>\n";
 			}
 			else{
-				echo Tab(6)."<option value=\"".$row["ID"]."\">".$row["Person"]." ".$row["Category"]."</option>\n";
+				echo Tab(6)."<option ";
+				if($i == $selected){
+					echo "selected ";
+				}
+				echo "value=\"".$row["ID"]."\">".$row["Person"]." ".$row["Category"]."</option>\n";
 			}
+			
 		}
 	}
 	
