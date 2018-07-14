@@ -3,13 +3,10 @@
 Finances, is an open source MIT Licensed application that 
 aims to help you track how and when you spend your money.
 Currently it is missing budgeting features but that may be added
-in the future.  AS this program is in development there 
-may be breaking changes. If upgrading from a previous version you 
-must download and run all previous 'patch.sql' changes before 
-continuing.
+in the future.  
 
 # Install Guide for Windows
-1. Download [XAMPP] (https://www.apachefriends.org/index.html).
+1. Download [XAMPP](https://www.apachefriends.org/index.html).
 2. Run the XAMPP installer
 3. After the install is finished open the XAMPP Control Panel as administrator.
 4. Under the Apache Module enable the Services checkbox.
@@ -36,7 +33,13 @@ continuing.
 	
 7. Download the Finances.zip
 8. Unzip the Finances folder to `C:/xampp/htdocs/Finances`
-9. Goto `http://localhost/Finances/Setup/setup' and wait til setup is complete.
+9. Goto http://localhost/Finances/Setup/setup and wait til setup is complete.
+
+# Update Guide
+1. Download the Finances.zip
+2. Unzip the Finances folder to `C:/xampp/htdocs/Finances`
+3. Wait til the Setup is Completed text appears.
+4. Refresh page, if no patches are applied you are done! If patches are applied repeat step 3 and 4 til no more patches are applied.
 
 # Specs
 Finances runs on top of PHP and SQLite. 
