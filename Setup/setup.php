@@ -68,48 +68,77 @@
 			</tbody>
 		</table>
 
-		<h2>Operations</h1>
-		<pre>
-			<?php 
-				echo "\n";
-				if($DirExists){
-					echo "Directory Creation Finished.\n";
+		<?php
+			$Integrity = Results(Query("PRAGMA integrity_check;"))["integrity_check"];
+			if($Integrity == "ok"){
+				echo "<p>No integrity violations detected</p>";
+			}
+			else{
+				echo '<table id="Integrity">'."\n";
+				print Table(Query("PRAGMA integrity_check;"),array("integrity_check"),"Integrity Check");
+				print "</table>";
+			}
+		?>
+	
+		<table id="FK">
+			<?php
+				$results = Query("PRAGMA foreign_key_check;");
+				$i = 0;
+				foreach($results as $row){
+					$i++;
+				}
+				if($i == 0){
+					print "<p>No foreign key errors detected.</p>";
 				}
 				else{
-					if(mkdir(Sqlite())){
-						echo "Created Directory.\n";
-					}
-					else{
-						echo "Failed to create Directory.\n";
-					}
+					print Table($results,array("table","rowid","parent","fkid"),"Foreign Keys");
 				}
-				
-				if($DBExists){
-					echo "Database Creation Finished.\n";
-				}
-				else{
-					echo "Loading SQL Schema\n";
-					$sql = file_get_contents(Schema());
-					echo 'Creating SQLite Database\n';
-					Load()->exec($sql);
-					echo 'Database Creation Finished.\n';
-				}
-
-				if($PatchExists){
-					echo "All Patches have been applied.\n";
-				}
-				else{
-					echo "Loading Patch:".Patch()."\n";
-					$sql = file_get_contents(Patch());
-					echo "Patching\n";
-					Load()->exec($sql);
-					echo "Completing Patching.\n";
-
-					echo "One Patch has been applied.\n";
-				}
-				echo 'Setup Completed.';
 			?>
+		</table>
+
+
+		<h2>Operations</h1>
+		<?php 
+			if($DirExists){
+				echo "Directory Creation Finished.<br>";
+			}
+			else{
+				if(mkdir(Sqlite())){
+					echo "Created Directory.<br>";
+				}
+				else{
+					echo "Failed to create Directory.<br>";
+				}
+			}
 			
-		</pre>
+			if($DBExists){
+				echo "Database Creation Finished.<br>";
+			}
+			else{
+				echo "Loading SQL Schema<br>";
+				$sql = file_get_contents(Schema());
+				echo 'Creating SQLite Database.<br>';
+				Load()->exec($sql);
+				echo 'Database Creation Finished.<br>';
+			}
+
+			if($PatchExists){
+				echo "All Patches have been applied.<br>";
+			}
+			else{
+				while(!is_file(Patch())){
+					echo "Loading Patch:".Patch()."<br>";
+					$sql = file_get_contents(Patch());
+					echo "Patching<br>";
+					Load()->exec($sql);
+					echo "Completing Patching.<br>";
+
+					echo "Patch has been applied.<br>";
+				}
+			}
+
+			echo 'Setup Completed.';
+		?>
+			
     </body>
 </html>

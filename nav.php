@@ -59,8 +59,6 @@
 
 				<div class="dropdown-content">
 					<a href=<?php echo Wrap(Setup()."setup"); ?>>Status</a>
-					<a href=<?php echo Wrap(Setup()."optimize");?>>Optimize Database</a>
-					<a href=<?php echo Wrap(Setup()."db errors");?>>Check for Database Errors</a>
 				</div>
 			</div>
 		</div>

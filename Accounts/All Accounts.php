@@ -11,8 +11,6 @@
 		</script>
 	</head>
 	<body>
-	
-
 		<table id="AllAccounts">
 				<?php			
 					print "\n";

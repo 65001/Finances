@@ -35,7 +35,7 @@
 	}
 
 	function Patch(){
-		return __DIR__. DIRECTORY_SEPARATOR.'Patch'.DIRECTORY_SEPARATOR.(Results(Query("PRAGMA User_Version;"))[0]["user_version"]).'.sql';
+		return __DIR__. DIRECTORY_SEPARATOR.'Patch'.DIRECTORY_SEPARATOR.(Results(Query("PRAGMA User_Version;"))["user_version"]).'.sql';
 	}
 	
 	function Wrap($string)
@@ -63,7 +63,7 @@
 	}
 
 	function Results($PDO){
-		return $PDO->fetchAll();
+		return $PDO->fetch(PDO::FETCH_ASSOC);
 	}
 	
 	function Table($results,$data,$title,$editable = false){
