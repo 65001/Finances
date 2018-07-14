@@ -58,9 +58,9 @@
 				<button class="dropbtn">Administration <i class="fa fa-caret-down"></i></button>
 
 				<div class="dropdown-content">
-					<a href=<?php echo Wrap(Setup()."setup"); ?>>First Time Setup</a>
-					<a href=<?php echo Wrap(Setup()."");?>>Optimize Database</a>
-					<a href=<?php echo Wrap(Setup()."");?>>Check for Database Errors</a>
+					<a href=<?php echo Wrap(Setup()."setup"); ?>>Status</a>
+					<a href=<?php echo Wrap(Setup()."optimize");?>>Optimize Database</a>
+					<a href=<?php echo Wrap(Setup()."db errors");?>>Check for Database Errors</a>
 				</div>
 			</div>
 		</div>

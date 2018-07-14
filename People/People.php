@@ -40,8 +40,7 @@
 		</table>
 		<br>
 		
-		<a href="http://localhost/Finances/People/Form.php">
-			<button>Add Person</button>
+		<button onclick="location.href ='form.php';">Add Person</button>
 		</a>
 	</body>
 </html>
