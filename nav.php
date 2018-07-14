@@ -46,11 +46,21 @@
 			</div>
 			
 			<div class="dropdown">
-				<button class="dropbtn">People</button>
+				<button class="dropbtn">People <i class="fa fa-caret-down"></i></button>
 
 				<div class="dropdown-content">
 					<a href=<?php echo Wrap(People()."People"); ?>>People</a>
 					<a href=<?php echo Wrap(People()."Form");?>>Add Person</a>
+				</div>
+			</div>
+
+			<div class="dropdown">
+				<button class="dropbtn">Administration <i class="fa fa-caret-down"></i></button>
+
+				<div class="dropdown-content">
+					<a href=<?php echo Wrap(Setup()."setup"); ?>>First Time Setup</a>
+					<a href=<?php echo Wrap(Setup()."");?>>Optimize Database</a>
+					<a href=<?php echo Wrap(Setup()."");?>>Check for Database Errors</a>
 				</div>
 			</div>
 		</div>

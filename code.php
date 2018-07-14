@@ -17,6 +17,26 @@
 	{
 		return Finances()."People".DIRECTORY_SEPARATOR;
 	}
+
+	function Setup(){
+		return Finances().'Setup'.DIRECTORY_SEPARATOR;
+	}
+
+	function Sqlite(){
+		return dirname(dirname(__DIR__)). DIRECTORY_SEPARATOR ."Sqlite". DIRECTORY_SEPARATOR;
+	}
+
+	function DataBase(){
+		return Sqlite()."Finances.db";
+	}
+
+	function Schema(){
+		return __DIR__. DIRECTORY_SEPARATOR.'Finance Schema.sql';
+	}
+
+	function Patch(){
+		return __DIR__. DIRECTORY_SEPARATOR.'Patch'.DIRECTORY_SEPARATOR.(Results(Query("PRAGMA User_Version;"))[0]["user_version"]).'.sql';
+	}
 	
 	function Wrap($string)
 	{
@@ -32,7 +52,7 @@
 	}
 	
 	function Load(){
-		$db = dirname(dirname(__DIR__)). DIRECTORY_SEPARATOR ."Sqlite". DIRECTORY_SEPARATOR ."Finances.db" ;
+		$db = DataBase();
 		$myPDO = new PDO('sqlite:'.$db,null,null,array(PDO::ATTR_PERSISTENT => true));
 		$myPDO ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		return $myPDO ;
@@ -40,6 +60,10 @@
 	
 	function Query($query){
 		return Load()->query($query);
+	}
+
+	function Results($PDO){
+		return $PDO->fetchAll();
 	}
 	
 	function Table($results,$data,$title,$editable = false){
