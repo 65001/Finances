@@ -65,10 +65,6 @@ CREATE VIEW "Transactions View" AS
 	Inner Join Types T2 ON Acc2.Category = T2.ID 
 	ORDER BY DATE;
 
-CREATE VIEW "Transactions Summary" AS 
-	Select "From","To",Sum(Amount) AS "Money" 
-	From "Transactions View" Group By "From","To";
-
 /* Includes General Accounts */
 CREATE VIEW "Accounts View" AS 
 	Select Accounts.ID,Persons.Person,Accounts.Account,Status,

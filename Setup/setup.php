@@ -11,7 +11,15 @@
 	<?php 
 		$DirExists = is_dir(Sqlite());
 		$DBExists = is_file(DataBase());
-		$PatchExists = !is_file(Patch());
+		$FirstTime = false;
+		$PatchExists = false;
+		if($DirExists == false || $DBExists == false){
+			$FirstTime = true;
+		}
+		else{
+			$PatchExists = !is_file(Patch());
+		}
+		
 	?>
 
     <body>
@@ -69,30 +77,34 @@
 		</table>
 
 		<?php
-			$Integrity = Results(Query("PRAGMA integrity_check;"))["integrity_check"];
-			if($Integrity == "ok"){
-				echo "<p>No integrity violations detected</p>";
-			}
-			else{
-				echo '<table id="Integrity">'."\n";
-				print Table(Query("PRAGMA integrity_check;"),array("integrity_check"),"Integrity Check");
-				print "</table>";
+			if($FirstTime == false){
+				$Integrity = Results(Query("PRAGMA integrity_check;"))["integrity_check"];
+				if($Integrity == "ok"){
+					echo "<p>No integrity violations detected</p>";
+				}
+				else{
+					echo '<table id="Integrity">'."\n";
+					print Table(Query("PRAGMA integrity_check;"),array("integrity_check"),"Integrity Check");
+					print "</table>";
+				}
 			}
 		?>
 	
 		<?php
-			$results = Query("PRAGMA foreign_key_check;");
-			$i = 0;
-			foreach($results as $row){
-				$i++;
-			}
-			if($i == 0){
-				print "<p>No foreign key errors detected.</p>";
-			}
-			else{
-				echo '<table id="FK">'."\n";
-				print Table($results,array("table","rowid","parent","fkid"),"Foreign Keys");
-				print "</table>";
+			if($FirstTime == false){
+				$results = Query("PRAGMA foreign_key_check;");
+				$i = 0;
+				foreach($results as $row){
+					$i++;
+				}
+				if($i == 0){
+					print "<p>No foreign key errors detected.</p>";
+				}
+				else{
+					echo '<table id="FK">'."\n";
+					print Table($results,array("table","rowid","parent","fkid"),"Foreign Keys");
+					print "</table>";
+				}
 			}
 		?>
 
@@ -127,7 +139,7 @@
 				echo Tab(2)."All Patches have been applied.<br>\n";
 			}
 			else{
-				while(!is_file(Patch())){
+				while(is_file(Patch())){
 					echo Tab(2)."Loading Patch:".Patch()."<br>\n";
 					$sql = file_get_contents(Patch());
 					echo Tab(2)."Patching<br>\n";
