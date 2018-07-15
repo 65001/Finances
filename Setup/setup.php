@@ -29,10 +29,10 @@
 					<td>
 						<?php 
 							if($DirExists){
-								echo "&#10003";
+								echo "&#10003\n";
 							}
 							else{
-								echo "&#10006";
+								echo "&#10006\n";
 							}
 						 ?>
 					</td>
@@ -42,10 +42,10 @@
 					<td>
 						<?php
 							if($DBExists){
-								echo "&#10003";
+								echo "&#10003\n";
 							}
 							else{
-								echo "&#10006";
+								echo "&#10006\n";
 							}
 						?>
 					</td>
@@ -55,11 +55,11 @@
 					<td>
 						<?php
 							if($PatchExists){
-								echo "&#10003";
+								echo "&#10003\n";
 								//echo Patch();
 							}
 							else{
-								echo "&#10006";
+								echo "&#10006\n";
 								
 							}
 						?>
@@ -80,65 +80,67 @@
 			}
 		?>
 	
-		<table id="FK">
-			<?php
-				$results = Query("PRAGMA foreign_key_check;");
-				$i = 0;
-				foreach($results as $row){
-					$i++;
-				}
-				if($i == 0){
-					print "<p>No foreign key errors detected.</p>";
-				}
-				else{
-					print Table($results,array("table","rowid","parent","fkid"),"Foreign Keys");
-				}
-			?>
-		</table>
+		<?php
+			$results = Query("PRAGMA foreign_key_check;");
+			$i = 0;
+			foreach($results as $row){
+				$i++;
+			}
+			if($i == 0){
+				print "<p>No foreign key errors detected.</p>";
+			}
+			else{
+				echo '<table id="FK">'."\n";
+				print Table($results,array("table","rowid","parent","fkid"),"Foreign Keys");
+				print "</table>";
+			}
+		?>
 
 
 		<h2>Operations</h1>
+		<div>
 		<?php 
 			if($DirExists){
-				echo "Directory Creation Finished.<br>";
+				echo "\n".Tab(2)."Directory Creation Finished.<br>\n";
 			}
 			else{
 				if(mkdir(Sqlite())){
-					echo "Created Directory.<br>";
+					echo Tab(2)."Created Directory.<br>\n";
 				}
 				else{
-					echo "Failed to create Directory.<br>";
+					echo Tab(2)."Failed to create Directory.<br>\n";
 				}
 			}
 			
 			if($DBExists){
-				echo "Database Creation Finished.<br>";
+				echo Tab(2)."Database Creation Finished.<br>\n";
 			}
 			else{
-				echo "Loading SQL Schema<br>";
+				echo Tab(2)."Loading SQL Schema<br>\n";
 				$sql = file_get_contents(Schema());
-				echo 'Creating SQLite Database.<br>';
+				echo Tab(2)."Creating SQLite Database.<br>\n";
 				Load()->exec($sql);
-				echo 'Database Creation Finished.<br>';
+				echo Tab(2)."Database Creation Finished.<br>\n";
 			}
 
 			if($PatchExists){
-				echo "All Patches have been applied.<br>";
+				echo Tab(2)."All Patches have been applied.<br>\n";
 			}
 			else{
 				while(!is_file(Patch())){
-					echo "Loading Patch:".Patch()."<br>";
+					echo Tab(2)."Loading Patch:".Patch()."<br>\n";
 					$sql = file_get_contents(Patch());
-					echo "Patching<br>";
+					echo Tab(2)."Patching<br>\n";
 					Load()->exec($sql);
-					echo "Completing Patching.<br>";
+					echo Tab(2)."Completing Patching.<br>\n";
 
-					echo "Patch has been applied.<br>";
+					echo Tab(2)."Patch has been applied.<br>\n";
 				}
 			}
 
-			echo 'Setup Completed.';
+			echo Tab(2)."Setup Completed.\n";
 		?>
+		</div>
 			
     </body>
 </html>
