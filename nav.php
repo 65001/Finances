@@ -1,7 +1,6 @@
 <?php
 	include("code.php");
 ?>
-
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
 		<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
@@ -11,17 +10,17 @@
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" />
+		<link rel="manifest" href="/Finances/manifest.json">
 
 		<div class="navbar">
-			<div class="dropdown">
+			<div class="dropdown w3-mobile">
 				<a href=<?php echo Wrap(Finances()); ?>>
-					<img src="https://image.flaticon.com/icons/svg/263/263115.svg" width="30" height="20">
-				</a>	
+					<i style="font-size:22px" class="fa fa-home fa-fw"></i>
+				</a>
 			</div>
+
 			<div class="dropdown">
-				 <button class="dropbtn">Accounts 
-					<i class="fa fa-caret-down"></i>
-				</button>
+				<button class="dropbtn">Accounts <i class="fa fa-caret-down"></i></button>
 				<div class="dropdown-content">
 					<a href=<?php echo Wrap(Accounts()."My Accounts"); ?>>My Accounts</a>
 					<a href=<?php echo Wrap(Accounts()."My Inactive Accounts"); ?>>My Inactive Accounts</a>
@@ -34,9 +33,7 @@
 			</div>
 			
 			<div class="dropdown">
-			    <button class="dropbtn">Transactions 
-					<i class="fa fa-caret-down"></i>
-				</button>
+			    <button class="dropbtn">Transactions <i class="fa fa-caret-down"></i></button>
 				<div class="dropdown-content">
 					<a href=<?php echo Wrap(Transactions()."Transactions"); ?>>All Transactions</a>
 					<a href=<?php echo Wrap(Transactions()."Summary"); ?>>Summary</a>
@@ -54,7 +51,7 @@
 				</div>
 			</div>
 
-			<div class="dropdown">
+			<div class="dropdown w3-mobile">
 				<button class="dropbtn">Administration <i class="fa fa-caret-down"></i></button>
 
 				<div class="dropdown-content">
