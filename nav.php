@@ -15,7 +15,7 @@
 		<div class="navbar">
 			<div class="dropdown w3-mobile">
 				<a href=<?php echo Wrap(Finances()); ?>>
-					<i style="font-size:22px" class="fa fa-home fa-fw"></i>
+					<i style="font-size:24px" class="fa fa-home fa-fw"></i>
 				</a>
 			</div>
 

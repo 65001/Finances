@@ -24,7 +24,7 @@
 
     <body>
 		<h1>Status</h1>
-		<table>
+		<table class="w3-table-all w3-hoverable">
 			<thead>
 				<tr>
 					<th>Operation</th>
