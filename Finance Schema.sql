@@ -151,5 +151,6 @@ INSERT INTO Types (Category) VALUES ('Debit Card');
 INSERT INTO Types (Category) VALUES ('General');
 INSERT INTO Types (Category) VALUES ('Cash');
 INSERT INTO Types (Category) VALUES ('E-Money');
+INSERT INTO Types (Category) VALUES ('Dining Services');
 
-PRAGMA user_version =  3;
+PRAGMA user_version =  4;
