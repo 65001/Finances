@@ -1,2 +1,2 @@
-UPDATE Types SET Category = 'Dining Services' WHERE Types = 'Dinning Service';
+UPDATE Types SET Category = 'Dining Services' WHERE Category = 'Dinning Service';
 PRAGMA user_version =  4;
