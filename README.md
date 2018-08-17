@@ -33,13 +33,28 @@ in the future.
 	
 7. Download the Finances.zip
 8. Unzip the Finances folder to `C:/xampp/htdocs/Finances`
-9. Goto http://localhost/Finances/Setup/setup and wait til setup is complete.
+9. Goto http://127.0.0.1/Finances/Setup/setup and wait til setup is complete.
 
 # Update Guide
 1. Download the Finances.zip
 2. Unzip the Finances folder to `C:/xampp/htdocs/Finances`
 3. Wait til the Setup is Completed text appears.
 4. Refresh page, if no patches are applied you are done! If patches are applied repeat step 3 and 4 til no more patches are applied.
+
+# Restricting to one machine
+In the event your in college or otherwise using your machine on a non-trusted network
+you <strong>MUST</strong> restrict your server to 127.0.0.1 .
+To do this you must do the following:
+1) Open XAMPP Control Panel as administrator.
+2) Under the Apache Module click the Config button and click <strong>Apache (httpd.conf)</strong>
+3) Navigate to the tag 
+``` xml 
+	<Directory "C:/xampp/htdocs">
+```
+4) In that tag change <strong>allow from all</strong> to <strong>allow from 127.0.0.1</strong>
+5) Add this line: <strong>deny all</strong>
+6) Change <strong>Order allow,deny </strong> to <strong>Order deny,allow</strong>
+7) Restart Apache by stopping the service and starting the service again. 
 
 # Specs
 Finances runs on top of PHP and SQLite. 
