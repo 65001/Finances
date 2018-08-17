@@ -152,4 +152,4 @@ INSERT INTO Types (Category) VALUES ('General');
 INSERT INTO Types (Category) VALUES ('Cash');
 INSERT INTO Types (Category) VALUES ('E-Money');
 
-PRAGMA user_version =  2;
+PRAGMA user_version =  3;
