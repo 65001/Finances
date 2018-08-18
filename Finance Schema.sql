@@ -1,7 +1,7 @@
 PRAGMA foreign_keys = ON;
 /*Create All the Tables :) */
 CREATE TABLE Types (ID INTEGER PRIMARY KEY,Category TEXT);
-CREATE TABLE Persons (ID INTEGER PRIMARY KEY,Person TEXT);
+CREATE TABLE Persons (ID INTEGER PRIMARY KEY,Person TEXT,Phone TEXT,Email TEXT);
 
 CREATE TABLE Accounts (ID INTEGER PRIMARY KEY,Institution INTEGER,
 	Account TEXT,Status TEXT,Issued TEXT,
