@@ -68,61 +68,74 @@ CREATE VIEW "Transactions View" AS
 /* Includes General Accounts */
 CREATE VIEW "Accounts View" AS 
 	Select Accounts.ID,Persons.Person,Accounts.Account,Status,
-	(CASE 
-		WHEN Issued IS NULL THEN
-			(SELECT MIN(DATE) FROM Transactions WHERE "From" = Accounts.ID OR "To" =Accounts.ID)
-		ELSE
-			substr(Issued,1,4) ||'-'|| substr(Issued,5,2) ||'-'|| substr(Issued,7,2) 
-	END) AS "Created",
-	(CASE
-		WHEN Closed IS NULL THEN
-			(SELECT MAX(DATE) FROM Transactions WHERE "From" = Accounts.ID OR "To" =Accounts.ID)
-		ELSE
-			substr(Closed,1,4) ||'-'|| substr(Closed,5,2) ||'-'|| substr(Closed,7,2) 
-	END) AS "Closed",
-	Types.Category,Comments From Accounts 
-	INNER JOIN Persons ON Persons.ID = Accounts.Institution 
-	INNER JOIN Types ON Types.ID = Accounts.Category
-	;
+		(CASE 
+			WHEN Issued IS NULL THEN
+				(SELECT MIN(DATE) FROM Transactions WHERE "From" = Accounts.ID OR "To" =Accounts.ID)
+			ELSE
+				substr(Issued,1,4) ||'-'|| substr(Issued,5,2) ||'-'|| substr(Issued,7,2) 
+		END) AS "Created",
+		(CASE
+			WHEN Closed IS NULL THEN
+				(SELECT MAX(DATE) FROM Transactions WHERE "From" = Accounts.ID OR "To" =Accounts.ID)
+			ELSE
+				substr(Closed,1,4) ||'-'|| substr(Closed,5,2) ||'-'|| substr(Closed,7,2) 
+		END) AS "Closed",
+		Types.Category,Comments From Accounts 
+		INNER JOIN Persons ON Persons.ID = Accounts.Institution 
+		INNER JOIN Types ON Types.ID = Accounts.Category;
 	
 /*Does not include General Accounts or accounts that have zero balance*/
 CREATE VIEW "My Accounts" AS 
 	Select Accounts.ID,Persons.Person,Accounts.Account,Status,
-	substr(Issued,1,4) ||'-'|| substr(Issued,5,2) ||'-'|| substr(Issued,7,2) AS "Created",
-	substr(Closed,1,4) ||'-'|| substr(Closed,5,2) ||'-'|| substr(Closed,7,2) AS "Closed",
-	Types.Category,Comments,Balance.Money AS 'Balance' From Accounts 
-	INNER JOIN Persons ON Persons.ID = Accounts.Institution 
-	INNER JOIN Types ON Types.ID = Accounts.Category
-	INNER JOIN Balance ON (Persons.Person|| ' ' ||  Types.Category) = Balance.Account
-	WHERE round(Balance,2) != 0;
+		substr(Issued,1,4) ||'-'|| substr(Issued,5,2) ||'-'|| substr(Issued,7,2) AS "Created",
+		substr(Closed,1,4) ||'-'|| substr(Closed,5,2) ||'-'|| substr(Closed,7,2) AS "Closed",
+		Types.Category,Comments,Balance.Money AS 'Balance' From Accounts 
+		INNER JOIN Persons ON Persons.ID = Accounts.Institution 
+		INNER JOIN Types ON Types.ID = Accounts.Category
+		INNER JOIN Balance ON (Persons.Person|| ' ' ||  Types.Category) = Balance.Account
+		WHERE round(Balance,2) != 0;
 	;
 	
 CREATE VIEW "My Inactive Accounts" AS 
 	Select Accounts.ID,Persons.Person,Accounts.Account,Status,
-	substr(Issued,1,4) ||'-'|| substr(Issued,5,2) ||'-'|| substr(Issued,7,2) AS "Created",
-	substr(Closed,1,4) ||'-'|| substr(Closed,5,2) ||'-'|| substr(Closed,7,2) AS "Closed",
-	Types.Category,Comments,round(Balance.Money,2) AS 'Balance' From Accounts 
-	INNER JOIN Persons ON Persons.ID = Accounts.Institution 
-	INNER JOIN Types ON Types.ID = Accounts.Category
-	INNER JOIN Balance ON (Persons.Person|| ' ' ||  Types.Category) = Balance.Account
-	WHERE round(Balance,2) = 0;
+		substr(Issued,1,4) ||'-'|| substr(Issued,5,2) ||'-'|| substr(Issued,7,2) AS "Created",
+		substr(Closed,1,4) ||'-'|| substr(Closed,5,2) ||'-'|| substr(Closed,7,2) AS "Closed",
+		Types.Category,Comments,round(Balance.Money,2) AS 'Balance' From Accounts 
+		INNER JOIN Persons ON Persons.ID = Accounts.Institution 
+		INNER JOIN Types ON Types.ID = Accounts.Category
+		INNER JOIN Balance ON (Persons.Person|| ' ' ||  Types.Category) = Balance.Account
+		WHERE round(Balance,2) = 0;
 	;
 	
 CREATE VIEW "Credit View" AS 
 	SELECT  "Accounts View".ID AS "ID",
-	"Accounts View".Person AS "Institution",
-	"Accounts View".Account AS "Account",
-	"Accounts View".Status AS "Status",
-	"Accounts View".Created AS "Created",
-	"Accounts View".Closed AS "Closed",
-	"Accounts View".Category AS "Category",
-	abs(Balance.Money) AS "Current Balance",
-	Credit.Maximum AS "Maximum", 
-	round( ( (abs(Balance.Money) * 1.0) / (Credit.Maximum *1.0)) * 100,4) ||'%' AS 'Percentage Used' 
-	From "Accounts View" 
-	INNER JOIN CREDIT ON Credit.ID = "Accounts View".ID
-	INNER JOIN Balance ON 
-	("Accounts View".Person || ' ' ||  "Accounts View".Category) = Balance.Account;
+		"Accounts View".Person AS "Institution",
+		"Accounts View".Account AS "Account",
+		"Accounts View".Status AS "Status",
+		"Accounts View".Created AS "Created",
+		"Accounts View".Closed AS "Closed",
+		"Accounts View".Category AS "Category",
+		abs(Balance.Money) AS "Current Balance",
+		Credit.Maximum AS "Maximum", 
+		round( ( (abs(Balance.Money) * 1.0) / (Credit.Maximum *1.0)) * 100,4) ||'%' AS 'Percentage Used' 
+		From "Accounts View" 
+		INNER JOIN CREDIT ON Credit.ID = "Accounts View".ID
+		INNER JOIN Balance ON 
+		("Accounts View".Person || ' ' ||  "Accounts View".Category) = Balance.Account;
+
+CREATE VIEW "Insurance View" AS 
+	SELECT  "Accounts View".ID AS "ID",
+		"Accounts View".Person AS "Institution",
+		"Accounts View".Account AS "Account",
+		"Accounts View".Status AS "Status",
+		"Accounts View".Created AS "Created",
+		"Accounts View".Closed AS "Closed",
+		"Accounts View".Category AS "Category",
+		Insurance."Face Value" AS "Face Value", 
+		Insurance."Deductible" AS "Deductible",
+		Insurance."Premium" AS "Yearly Premium"
+		From "Accounts View" 
+		INNER JOIN Insurance ON Insurance.ID = "Accounts View".ID;
 
 CREATE VIEW Balance AS Select "Account",Sum(Money) AS 'Money' FROM 
 	( 

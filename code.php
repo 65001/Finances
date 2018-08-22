@@ -22,6 +22,14 @@
 		return Finances().'Setup'.DIRECTORY_SEPARATOR;
 	}
 
+	function Misc(){
+		return Finances()."Misc".DIRECTORY_SEPARATOR;;
+	}
+
+	function Insurance(){
+		return Misc()."Insurance".DIRECTORY_SEPARATOR;
+	}
+
 	function Sqlite(){
 		return dirname(dirname(__DIR__)). DIRECTORY_SEPARATOR ."Sqlite". DIRECTORY_SEPARATOR;
 	}
