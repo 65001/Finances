@@ -4,7 +4,6 @@
 			include( $_SERVER['DOCUMENT_ROOT'].DIRECTORY_SEPARATOR."Finances".DIRECTORY_SEPARATOR."nav.php");
 		?>
 		
-		<link rel="stylesheet" type="text/css" href="..\style.css">
 		<title>All Accounts</title>
 		<script>
 			$(document).ready(function() { $("#AllAccounts").DataTable({"iDisplayLength": 100}); });

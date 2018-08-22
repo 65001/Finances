@@ -1,7 +1,5 @@
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="..\style.css">
-		<link rel="stylesheet" type="text/css" href="..\form.css">
 		<title>Add a Person</title>
 	</head>
 

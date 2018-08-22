@@ -3,7 +3,6 @@
         <?php
 			include( $_SERVER['DOCUMENT_ROOT'].DIRECTORY_SEPARATOR."Finances".DIRECTORY_SEPARATOR."nav.php");
         ?>
-        <link rel="stylesheet" type="text/css" href="..\style.css">
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     </head>
 

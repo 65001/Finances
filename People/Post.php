@@ -1,4 +1,3 @@
-<link rel="stylesheet" type="text/css" href="..\style.css">
 <?php
 	
 	$path = dirname(__DIR__).DIRECTORY_SEPARATOR."nav.php";

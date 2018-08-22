@@ -3,8 +3,6 @@
 		include( $_SERVER['DOCUMENT_ROOT'].DIRECTORY_SEPARATOR."Finances".DIRECTORY_SEPARATOR."nav.php");
 	?>
 	<head>
-		<link rel="stylesheet" type="text/css" href="..\style.css">
-		<link rel="stylesheet" type="text/css" href="..\form.css">
 		
 		<title>Add a Transaction</title>
 		<script>

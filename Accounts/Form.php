@@ -3,8 +3,7 @@
 		<?php 
 			include( $_SERVER['DOCUMENT_ROOT'].DIRECTORY_SEPARATOR."Finances".DIRECTORY_SEPARATOR."nav.php");
 		?>
-		<link rel="stylesheet" type="text/css" href="..\style.css">
-		<link rel="stylesheet" type="text/css" href="..\form.css">
+		
 		<title>Add an Account</title>
 	</head>
 
