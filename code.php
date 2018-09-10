@@ -30,6 +30,10 @@
 		return Misc()."Insurance".DIRECTORY_SEPARATOR;
 	}
 
+	function CSS() {
+		return Finances()."css".DIRECTORY_SEPARATOR;
+	}
+
 	function Sqlite(){
 		return dirname(dirname(__DIR__)). DIRECTORY_SEPARATOR ."Sqlite". DIRECTORY_SEPARATOR;
 	}

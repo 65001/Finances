@@ -9,11 +9,12 @@
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js" charset="utf8" ></script>
 		
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
-		<link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" />
-		<link rel="stylesheet" type="text/css" href=<?php echo Wrap(Finances()."style.css"); ?>>
-		<link rel="stylesheet" type="text/css" href=<?php echo Wrap(Finances()."form.css"); ?>> 
+		
+		<link rel="stylesheet" type="text/css" href=<?php echo Wrap(CSS()."style.css"); ?>>
+		<link rel="stylesheet" type="text/css" href=<?php echo Wrap(CSS()."form.css"); ?>> 
+		<link rel="stylesheet" type="text/css" href=<?php echo Wrap(CSS()."w3.css"); ?>> 
 		
 		<link rel="manifest" href="/Finances/manifest.json">
 
