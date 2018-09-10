@@ -1,7 +1,6 @@
-<html>
+<html lang="en">
 	<head>
 		<title>Finances</title>
-		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	
 	<body>
@@ -17,5 +16,6 @@
 			<h2>Footnotes</h2>
 			<p>Currently taxes on income are not recorded and sales taxes are inclusive to the merchant who collected said sales taxes.</p>
 		</div>
+
 	</body>
 </html>
