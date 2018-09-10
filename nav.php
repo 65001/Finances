@@ -6,12 +6,12 @@
 
 		<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js" charset="utf8" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js" charset="utf8"></script>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js" charset="utf8" ></script>
-		
+		<script type="text/javascript" src=<?php echo Wrap(CSS()."select 2/js/select2.min.js"); ?> charset="utf-8"></script>
+
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" />
-		
+
+		<link rel="stylesheet" type="text/css" href=<?php echo Wrap(CSS()."select 2/css/select2.min.css"); ?>/>
 		<link rel="stylesheet" type="text/css" href=<?php echo Wrap(CSS()."style.css"); ?>>
 		<link rel="stylesheet" type="text/css" href=<?php echo Wrap(CSS()."form.css"); ?>> 
 		<link rel="stylesheet" type="text/css" href=<?php echo Wrap(CSS()."w3.css"); ?>> 

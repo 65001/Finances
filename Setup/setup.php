@@ -12,6 +12,9 @@
 		$DBExists = is_file(DataBase());
 		$FirstTime = false;
 		$PatchExists = false;
+		$Select2 = false;
+		$JQuery = false;
+		$FontAwesome = false;
 		if($DirExists == false || $DBExists == false){
 			$FirstTime = true;
 		}
