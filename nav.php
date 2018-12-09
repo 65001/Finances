@@ -48,6 +48,14 @@
 					<a href=<?php echo Wrap(Transactions()."Form");?> rel="preload"> Add Transaction</a>
 				</div>
 			</div>
+
+			<div class = "dropdown">
+				<button class="dropbtn">Categories <i class="fa fa-caret-down"></i></button>
+				<div class="dropdown-content">
+					<a href=<?php echo Wrap(Category()."Category"); ?>>Categories</a>
+					<a href=<?php echo Wrap(Category()."Form");?>>Add Category</a>
+				</div>
+			</div>
 			
 			<div class="dropdown">
 				<button class="dropbtn">People <i class="fa fa-caret-down"></i></button>
