@@ -15,11 +15,11 @@
 	</head>
 	<body>
 		<div class = "w3-bar w3-dark-gray"> 
-			<a class = "w3-bar-item w3-button records w3-green" href="Transactions.php"> 
+			<a class = "w3-bar-item w3-button records" href="Transactions.php"> 
 				Entire History
 			</a>
 
-			<a class = "w3-bar-item w3-button records" href = "TLY">
+			<a class = "w3-bar-item w3-button records w3-green" href = "TLY">
 				Last Year
 			</a>
 
@@ -41,7 +41,7 @@
 			<?php			
 				print "\n";
 				print Table(Query("SELECT ID,Date,\"From\",\"To\",printf(\"%.2f\",Amount) AS 'Amount',Memo 
-					FROM [Transactions View] ORDER BY DATE DESC"),array("Date","From","To","Amount","Memo"),"Transactions",true);				
+					FROM [Last Years Transactions] ORDER BY DATE DESC"),array("Date","From","To","Amount","Memo"),"Transactions",true);				
 			?>
 		</table>
 		<br>

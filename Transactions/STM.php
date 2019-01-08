@@ -13,7 +13,7 @@
 
 	<body>
 		<div class = "w3-bar w3-dark-gray"> 
-			<a class = "w3-bar-item w3-button records w3-green" href = "Summary"> 
+			<a class = "w3-bar-item w3-button records" href = "Summary"> 
 				Entire History
 			</a>
 
@@ -29,7 +29,7 @@
 				Last Month
 			</a>
 
-			<a class = "w3-bar-item w3-button records"  href = "STM">
+			<a class = "w3-bar-item w3-button records  w3-green"  href = "STM">
 				This Month
 			</a>
 		</div>
@@ -37,7 +37,8 @@
 		<br>
 		<table id = "records">
 			<?php			
-				$result = Query("SELECT \"From\",\"To\",printf(\"%.2f\",Money) AS 'Money',\"Number of Transactions\",printf(\"%.2f\",round(Money/\"Number of Transactions\",2)) AS 'AVG' FROM [Transactions Summary]");
+				$result = Query("SELECT \"From\",\"To\",printf(\"%.2f\",Money) AS 'Money',\"Number of Transactions\",printf(\"%.2f\",round(Money/\"Number of Transactions\",2)) AS 'AVG' 
+                    FROM [Months Transactions Summary]");
 				print "\n";
 				print Table($result,array('From',"To","Money","Number of Transactions","AVG"),"Summary");	
 			?>

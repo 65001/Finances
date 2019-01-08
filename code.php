@@ -85,6 +85,10 @@
 	function Results($PDO){
 		return $PDO->fetch(PDO::FETCH_ASSOC);
 	}
+
+	function JSON($results) {
+		return json_encode( $results );
+	}
 	
 	function Table($results,$data,$title,$editable = false){
 		print Tab(2)."<thead>\n";

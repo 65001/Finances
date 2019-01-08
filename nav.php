@@ -41,13 +41,8 @@
 			    <button class="w3-button">Transactions <i class="fa fa-caret-down"></i></button>
 				<div class="w3-dropdown-content w3-bar-block w3-card-4">
 					<div class="w3-bar-item w3-button">
-						<a class="w3-button" style = "padding-left:0px;" href=<?php echo Wrap(Transactions()."Transactions"); ?>>All Transactions</a>
-						<a class = "w3-button w3-square w3-light-gray" href=<?php echo Wrap(Transactions()."Form");?> rel="preload">+</a>
-						<!--
-						<div class = "w3-right w3-button w3-square w3-dark-gray w3-dropdown"> 
-							>
-						</div>
-						-->
+						<a class="w3-button" style = "padding-left:0px;" href=<?php echo Wrap(Transactions()."Transactions.php"); ?>>All Transactions</a>
+						<a class = "w3-button w3-square w3-light-gray" href=<?php echo Wrap(Transactions()."Form");?> rel="preload">+</a>	
 					</div>
 
 					<a class="w3-bar-item w3-button" href=<?php echo Wrap(Transactions()."Summary"); ?>>Summary</a>
