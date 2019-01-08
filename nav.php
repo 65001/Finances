@@ -10,7 +10,6 @@
 
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 		<link rel="stylesheet" type="text/css" href=<?php echo Wrap(CSS()."select 2/css/select2.min.css"); ?>/>
 		<link rel="stylesheet" type="text/css" href=<?php echo Wrap(CSS()."style.css"); ?>>
 		<link rel="stylesheet" type="text/css" href=<?php echo Wrap(CSS()."form.css"); ?>> 
@@ -18,62 +17,57 @@
 		
 		<link rel="manifest" href="/Finances/manifest.json">
 
-		<div class="navbar">
-			<div class="dropdown w3-mobile">
-				<a href=<?php echo Wrap(Finances()); ?>>
-					<i style="font-size:24px" class="fa fa-home fa-fw"></i>
-				</a>
-			</div>
+		<div class="w3-bar w3-dark-gray w3-large">
+			<a class="w3-bar-item w3-button" href=<?php echo Wrap(Finances()); ?>> <i style="font-size:24px" class="fa fa-home fa-fw"></i></a>
 
-			<div class="dropdown">
-				<button class="dropbtn">Accounts <i class="fa fa-caret-down"></i></button>
-				<div class="dropdown-content">
-					<a href=<?php echo Wrap(Accounts()."My Accounts"); ?> rel="preload">My Accounts</a>
-					<a href=<?php echo Wrap(Accounts()."My Inactive Accounts"); ?>>My Inactive Accounts</a>
-					<a href=<?php echo Wrap(Accounts()."All Accounts"); ?>>All Accounts</a>
-					<a href=<?php echo Wrap(Accounts()."Balance"); ?>>Balance Summary</a>
-					<a href=<?php echo Wrap(Accounts()."Balance Graph");?>>Balance Graph</a>
-					<a href=<?php echo Wrap(Accounts()."Credit"); ?>>Credit Usage</a>
-					<a href=<?php echo Wrap(Insurance()."Insurance")?>>Insurance</a>
-					<a href=<?php echo Wrap(Accounts()."form"); ?>>Add Account</a>
+			<div class="w3-dropdown-hover">
+				<button class="w3-button">Accounts <i class="fa fa-caret-down"></i></button>
+				<div class="w3-dropdown-content w3-bar-block w3-card-4">
+					<a class="w3-bar-item w3-button" href=<?php echo Wrap(Accounts()."My Accounts"); ?> rel="preload">My Accounts</a>
+					<a class="w3-bar-item w3-button" href=<?php echo Wrap(Accounts()."My Inactive Accounts"); ?>>My Inactive Accounts</a>
+					<a class="w3-bar-item w3-button" href=<?php echo Wrap(Accounts()."All Accounts"); ?>>All Accounts</a>
+					<a class="w3-bar-item w3-button" href=<?php echo Wrap(Accounts()."Balance"); ?>>Balance Summary</a>
+					<a class="w3-bar-item w3-button" href=<?php echo Wrap(Accounts()."Balance Graph");?>>Balance Graph</a>
+					<a class="w3-bar-item w3-button" href=<?php echo Wrap(Accounts()."Credit"); ?>>Credit Usage</a>
+					<a class="w3-bar-item w3-button" href=<?php echo Wrap(Insurance()."Insurance")?>>Insurance</a>
+					<a class="w3-bar-item w3-button" href=<?php echo Wrap(Accounts()."form"); ?>>Add Account</a>
 				</div>
 			</div>
 			
-			<div class="dropdown">
-			    <button class="dropbtn">Transactions <i class="fa fa-caret-down"></i></button>
-				<div class="dropdown-content">
-					<a href=<?php echo Wrap(Transactions()."Transactions"); ?>>All Transactions</a>
-					<a href=<?php echo Wrap(Transactions()."Summary"); ?>>Summary</a>
-					<a href=<?php echo Wrap(Transactions()."Income and Expense Graph");?>>Income/Expense Graph</a>
-					<a href=<?php echo Wrap(Transactions()."Form");?> rel="preload"> Add Transaction</a>
+			<div class="w3-dropdown-hover">
+			    <button class="w3-button">Transactions <i class="fa fa-caret-down"></i></button>
+				<div class="w3-dropdown-content w3-bar-block w3-card-4">
+					<a class="w3-bar-item w3-button" href=<?php echo Wrap(Transactions()."Transactions"); ?>>All Transactions</a>
+					<a class="w3-bar-item w3-button" href=<?php echo Wrap(Transactions()."Summary"); ?>>Summary</a>
+					<a class="w3-bar-item w3-button" href=<?php echo Wrap(Transactions()."Income and Expense Graph");?>>Income/Expense Graph</a>
+					<a class="w3-bar-item w3-button" href=<?php echo Wrap(Transactions()."Form");?> rel="preload"> Add Transaction</a>
 				</div>
 			</div>
 
-			<div class = "dropdown">
-				<button class="dropbtn">Categories <i class="fa fa-caret-down"></i></button>
-				<div class="dropdown-content">
-					<a href=<?php echo Wrap(Category()."Category"); ?>>Categories</a>
-					<a href=<?php echo Wrap(Category()."Form");?>>Add Category</a>
+			<div class = "w3-dropdown-hover">
+				<button class="w3-button">Categories <i class="fa fa-caret-down"></i></button>
+				<div class="w3-dropdown-content w3-bar-block w3-card-4">
+					<a class="w3-bar-item w3-button" href=<?php echo Wrap(Category()."Category"); ?>>Categories</a>
+					<a class="w3-bar-item w3-button" href=<?php echo Wrap(Category()."Form");?>>Add Category</a>
 				</div>
 			</div>
 			
-			<div class="dropdown">
-				<button class="dropbtn">People <i class="fa fa-caret-down"></i></button>
-
-				<div class="dropdown-content">
-					<a href=<?php echo Wrap(People()."People"); ?>>People</a>
-					<a href=<?php echo Wrap(People()."Form");?>>Add Person</a>
+			<div class="w3-dropdown-hover">
+				<button class="w3-button">People <i class="fa fa-caret-down"></i></button>
+				<div class="w3-dropdown-content w3-bar-block w3-card-4">
+					<a class="w3-bar-item w3-button" href=<?php echo Wrap(People()."People"); ?>>People</a>
+					<a class="w3-bar-item w3-button" href=<?php echo Wrap(People()."Form");?>>Add Person</a>
 				</div>
 			</div>
 
-			<div class="dropdown w3-mobile">
-				<button class="dropbtn">Administration <i class="fa fa-caret-down"></i></button>
-
-				<div class="dropdown-content">
-					<a href=<?php echo Wrap(Setup()."setup"); ?>>Status</a>
+			<div class="w3-dropdown-hover">
+				<button class="w3-button">Administration <i class="fa fa-caret-down"></i></button>
+				<div class="w3-dropdown-content w3-bar-block w3-card-4">
+					<a class="w3-bar-item w3-button" href=<?php echo Wrap(Setup()."setup"); ?>>Status</a>
 				</div>
 			</div>
 		</div>
+
 		<?php 
 			echo "\n";
 		?>	
