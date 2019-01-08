@@ -23,47 +23,51 @@
 			<div class="w3-dropdown-hover">
 				<button class="w3-button">Accounts <i class="fa fa-caret-down"></i></button>
 				<div class="w3-dropdown-content w3-bar-block w3-card-4">
-					<a class="w3-bar-item w3-button" href=<?php echo Wrap(Accounts()."My Accounts"); ?> rel="preload">My Accounts</a>
+					<div class="w3-bar-item w3-button">
+						<a class = "w3-button" style = "padding-left:0px;" href=<?php echo Wrap(Accounts()."My Accounts"); ?> rel="preload">My Accounts</a>
+						<a class = "w3-right w3-button w3-square w3-light-gray" href=<?php echo Wrap(Accounts()."form"); ?>>+</a>
+					</div>
+
 					<a class="w3-bar-item w3-button" href=<?php echo Wrap(Accounts()."My Inactive Accounts"); ?>>My Inactive Accounts</a>
 					<a class="w3-bar-item w3-button" href=<?php echo Wrap(Accounts()."All Accounts"); ?>>All Accounts</a>
 					<a class="w3-bar-item w3-button" href=<?php echo Wrap(Accounts()."Balance"); ?>>Balance Summary</a>
 					<a class="w3-bar-item w3-button" href=<?php echo Wrap(Accounts()."Balance Graph");?>>Balance Graph</a>
 					<a class="w3-bar-item w3-button" href=<?php echo Wrap(Accounts()."Credit"); ?>>Credit Usage</a>
 					<a class="w3-bar-item w3-button" href=<?php echo Wrap(Insurance()."Insurance")?>>Insurance</a>
-					<a class="w3-bar-item w3-button" href=<?php echo Wrap(Accounts()."form"); ?>>Add Account</a>
 				</div>
 			</div>
 			
 			<div class="w3-dropdown-hover">
 			    <button class="w3-button">Transactions <i class="fa fa-caret-down"></i></button>
 				<div class="w3-dropdown-content w3-bar-block w3-card-4">
-					<a class="w3-bar-item w3-button" href=<?php echo Wrap(Transactions()."Transactions"); ?>>All Transactions</a>
+					<div class="w3-bar-item w3-button">
+						<a class="w3-button" style = "padding-left:0px;" href=<?php echo Wrap(Transactions()."Transactions"); ?>>All Transactions</a>
+						<a class = "w3-button w3-square w3-light-gray" href=<?php echo Wrap(Transactions()."Form");?> rel="preload">+</a>
+						<!--
+						<div class = "w3-right w3-button w3-square w3-dark-gray w3-dropdown"> 
+							>
+						</div>
+						-->
+					</div>
+
 					<a class="w3-bar-item w3-button" href=<?php echo Wrap(Transactions()."Summary"); ?>>Summary</a>
 					<a class="w3-bar-item w3-button" href=<?php echo Wrap(Transactions()."Income and Expense Graph");?>>Income/Expense Graph</a>
-					<a class="w3-bar-item w3-button" href=<?php echo Wrap(Transactions()."Form");?> rel="preload"> Add Transaction</a>
 				</div>
 			</div>
 
 			<div class = "w3-dropdown-hover">
-				<button class="w3-button">Categories <i class="fa fa-caret-down"></i></button>
+				<button class="w3-button">Misc <i class="fa fa-caret-down"></i></button>
 				<div class="w3-dropdown-content w3-bar-block w3-card-4">
-					<a class="w3-bar-item w3-button" href=<?php echo Wrap(Category()."Category"); ?>>Categories</a>
-					<a class="w3-bar-item w3-button" href=<?php echo Wrap(Category()."Form");?>>Add Category</a>
-				</div>
-			</div>
-			
-			<div class="w3-dropdown-hover">
-				<button class="w3-button">People <i class="fa fa-caret-down"></i></button>
-				<div class="w3-dropdown-content w3-bar-block w3-card-4">
-					<a class="w3-bar-item w3-button" href=<?php echo Wrap(People()."People"); ?>>People</a>
-					<a class="w3-bar-item w3-button" href=<?php echo Wrap(People()."Form");?>>Add Person</a>
-				</div>
-			</div>
+					<div class="w3-bar-item w3-button">
+						<a class="w3-button" style = "padding-left:0px;" href=<?php echo Wrap(Category()."Category"); ?>>Categories</a>
+						<a class="w3-button w3-right w3-square w3-light-gray" href=<?php echo Wrap(Category()."Form");?>>+</a>
+					</div>
 
-			<div class="w3-dropdown-hover">
-				<button class="w3-button">Administration <i class="fa fa-caret-down"></i></button>
-				<div class="w3-dropdown-content w3-bar-block w3-card-4">
-					<a class="w3-bar-item w3-button" href=<?php echo Wrap(Setup()."setup"); ?>>Status</a>
+					<div class="w3-bar-item w3-button">
+						<a class = "w3-button" style = "padding-left:0px;" href=<?php echo Wrap(People()."People"); ?>>People</a>
+						<a class = "w3-button w3-right w3-square w3-light-gray" href=<?php echo Wrap(People()."Form") ?>>+</a>
+					</div>
+					<a class="w3-bar-item w3-button" href=<?php echo Wrap(Setup()."setup"); ?>>Admin Status</a>
 				</div>
 			</div>
 		</div>

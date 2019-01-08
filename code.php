@@ -38,6 +38,10 @@
 		return Finances()."Category".DIRECTORY_SEPARATOR;
 	}
 
+	function Reports() {
+		return Finances()."Reports".DIRECTORY_SEPARATOR;
+	}
+
 	function Sqlite(){
 		return dirname(dirname(__DIR__)). DIRECTORY_SEPARATOR ."Sqlite". DIRECTORY_SEPARATOR;
 	}
